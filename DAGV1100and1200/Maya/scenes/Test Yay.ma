@@ -1,6 +1,6 @@
 //Maya ASCII 2026 scene
 //Name: Test Yay.ma
-//Last modified: Wed, Aug 27, 2025 08:50:17 PM
+//Last modified: Wed, Aug 27, 2025 08:54:52 PM
 //Codeset: 1252
 requires maya "2026";
 requires "mtoa" "5.5.3";
@@ -10,18 +10,18 @@ fileInfo "product" "Maya 2026";
 fileInfo "version" "2026";
 fileInfo "cutIdentifier" "202507081222-4d6919b75c";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 26100)";
-fileInfo "UUID" "50BC6B66-4986-C9CD-5770-AF80F910B40D";
+fileInfo "UUID" "1D156BB3-4A32-0AA0-EA19-C5950712D099";
 createNode transform -s -n "persp";
 	rename -uid "88191A1D-4088-113A-64F8-A2BB74BFA557";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -31.182896606652744 20.393837768304856 31.466683192458159 ;
-	setAttr ".r" -type "double3" -15.000000000001211 -1131.9999999997344 0 ;
+	setAttr ".t" -type "double3" 24.604435768702878 16.592695340780121 -5.9089117405960607 ;
+	setAttr ".r" -type "double3" -37.199999999999925 -966.79999999967276 0 ;
 	setAttr ".rpt" -type "double3" -5.8496815621741556e-17 5.0166359783231189e-16 4.0192253398181222e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "1602C5EE-49A1-AC21-DDA3-F8B536908B36";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 53.542340795797692;
+	setAttr ".coi" 22.500221097696301;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -101,7 +101,7 @@ createNode mesh -n "pCubeShape2" -p "pCube2";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
-	setAttr ".pv" -type "double2" 0.61375001072883606 0.27500000596046448 ;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
@@ -121,9 +121,6 @@ createNode mesh -n "pCubeShape3" -p "pCube3";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 8 ".pt[0:7]" -type "float3"  0 0.33233911 0 0 0.33233911 
-		0 0 -0.33233911 0 0 -0.33233911 0 0 -0.33233911 0 0 -0.33233911 0 0 0.33233911 0 
-		0 0.33233911 0;
 createNode lightLinker -s -n "lightLinker1";
 	rename -uid "DE76DA1D-40F6-E300-6E1A-799EE218D0A2";
 	setAttr -s 2 ".lnk";
@@ -573,6 +570,26 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge5";
 createNode polyCube -n "polyCube3";
 	rename -uid "DD93D3E4-42AB-396E-0F80-D0A3519B0666";
 	setAttr ".cuv" 4;
+createNode polyBevel3 -n "polyBevel2";
+	rename -uid "CDD05CC0-42E2-BE21-6D60-C595A23AD3DD";
+	setAttr ".uopa" yes;
+	setAttr ".ics" -type "componentList" 1 "e[0:11]";
+	setAttr ".ix" -type "matrix" 23.909266448542297 0 0 0 0 0.43062684635573778 0 0 0 0 23.302790534494619 0
+		 0 0 0 1;
+	setAttr ".ws" yes;
+	setAttr ".oaf" yes;
+	setAttr ".sg" 3;
+	setAttr ".at" 180;
+	setAttr ".sn" yes;
+	setAttr ".mv" yes;
+	setAttr ".mvt" 0.0001;
+	setAttr ".sa" 30;
+createNode polyTweak -n "polyTweak2";
+	rename -uid "67C44087-4137-1BAA-EB85-7A88BCB4B680";
+	setAttr ".uopa" yes;
+	setAttr -s 8 ".tk[0:7]" -type "float3"  0 0.33233911 0 0 0.33233911
+		 0 0 -0.33233911 0 0 -0.33233911 0 0 -0.33233911 0 0 -0.33233911 0 0 0.33233911 0
+		 0 0.33233911 0;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -622,7 +639,7 @@ select -ne :hardwareRenderGlobals;
 	setAttr ".btrs" 512;
 connectAttr "polyExtrudeFace2.out" "pCubeShape1.i";
 connectAttr "polyExtrudeEdge5.out" "pCubeShape2.i";
-connectAttr "polyCube3.out" "pCubeShape3.i";
+connectAttr "polyBevel2.out" "pCubeShape3.i";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
@@ -685,6 +702,9 @@ connectAttr "polyExtrudeEdge3.out" "polyExtrudeEdge4.ip";
 connectAttr "pCubeShape2.wm" "polyExtrudeEdge4.mp";
 connectAttr "polyExtrudeEdge4.out" "polyExtrudeEdge5.ip";
 connectAttr "pCubeShape2.wm" "polyExtrudeEdge5.mp";
+connectAttr "polyTweak2.out" "polyBevel2.ip";
+connectAttr "pCubeShape3.wm" "polyBevel2.mp";
+connectAttr "polyCube3.out" "polyTweak2.ip";
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "pCubeShape1.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "pCubeShape2.iog" ":initialShadingGroup.dsm" -na;
