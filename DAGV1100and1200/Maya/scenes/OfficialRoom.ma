@@ -1,6 +1,6 @@
 //Maya ASCII 2026 scene
 //Name: OfficialRoom.ma
-//Last modified: Fri, Sep 26, 2025 08:06:14 PM
+//Last modified: Fri, Sep 26, 2025 08:11:57 PM
 //Codeset: 1252
 file -rdi 1 -ns "JennaFloor" -rfn "JennaFloorRN" -op "v=0;" -typ "mayaAscii"
 		 "C:/GitHub/Essentials/DAGV1100and1200/Maya//assets/JennaFloor.ma";
@@ -58,19 +58,19 @@ fileInfo "product" "Maya 2026";
 fileInfo "version" "2026";
 fileInfo "cutIdentifier" "202507081222-4d6919b75c";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 26100)";
-fileInfo "UUID" "674B6011-4A3E-9CC2-35A0-FBB7904AD36B";
+fileInfo "UUID" "2E650935-4BEF-DCAC-CE48-759841931260";
 fileInfo "license" "education";
 createNode transform -s -n "persp";
 	rename -uid "A9B9DC9A-4F67-94CB-318B-99BC4F336986";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -4.3080362199496065 30.607544323578356 -36.959005908205235 ;
-	setAttr ".r" -type "double3" -43.199999999997821 176.00000000000665 0 ;
+	setAttr ".t" -type "double3" 4.3761100546434566 29.158816745495027 -51.102852161474672 ;
+	setAttr ".r" -type "double3" -28.799999999997191 165.20000000000624 0 ;
 	setAttr ".rpt" -type "double3" 3.4218884976746812e-16 3.9959859548803238e-16 -5.0028441917851645e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "8F9FF3A8-4A2C-96A2-1FEC-64B5A460961E";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 35.016264951101427;
+	setAttr ".coi" 46.749109483432491;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -38516,7 +38516,7 @@ createNode mesh -n "JennaCouch1:polySurface2Shape" -p "JennaCouch1:polySurface3"
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 createNode fosterParent -n "JennaWindowRNfosterParent1";
-	rename -uid "797716B9-4B07-57DB-048F-BCBE4F0AD1B4";
+	rename -uid "13D326C2-4552-F1E5-5182-C281FA3883CF";
 createNode mesh -n "JennaWindow:polySurfaceShape3" -p "JennaWindowRNfosterParent1";
 	rename -uid "28980C2F-43B3-6D19-F4C5-6294691F0508";
 	setAttr -k off ".v";
@@ -38607,7 +38607,7 @@ createNode mesh -n "JennaWindow:polySurfaceShape3" -p "JennaWindowRNfosterParent
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode fosterParent -n "JennaCouchRN1fosterParent1";
-	rename -uid "DA5B14BC-4138-B4C8-07FF-AFAAC124148F";
+	rename -uid "667A4557-4158-7817-1DD1-F3A035AE53D4";
 createNode transform -n "JennaCouch1:transform2" -p "JennaCouchRN1fosterParent1";
 	rename -uid "990651AB-4C40-154C-2F6C-5293DCD9C485";
 	setAttr ".v" no;
