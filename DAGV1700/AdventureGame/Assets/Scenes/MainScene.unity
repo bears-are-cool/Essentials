@@ -4187,7 +4187,7 @@ GameObject:
   - component: {fileID: 1598554459}
   - component: {fileID: 1598554458}
   m_Layer: 3
-  m_Name: GameObject
+  m_Name: CameraZoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
