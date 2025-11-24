@@ -73,11 +73,13 @@ public class Controller : MonoBehaviour
         if (!controller.isGrounded)
         {
             velocity.y += gravity * Time.deltaTime;
+            
         }
         else
         {
             // Reset vertical velocity when on the ground
             velocity.y = 0f;
+            jumpCount = 0;
         }
 
         // Apply velocity
